@@ -18,28 +18,34 @@
 
   </head>
   <body>
-    <header>
+    <header class="">
         <!--! Nabvar Section  -->
-        <nav class="max-w-screen-lg mx-auto flex flex-col lg:flex-row gap-4 lg:justify-between mt-8 px-2 md:px-4 lg:px-8">
+        <nav class="max-w-screen-lg mx-auto px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row  justify-between mt-8 ">
                 <img src="Logo.png" alt="">
-                <button class="bg-primary px-2 py-1 rounded-sm">Sort by view</button>
-                <button class="bg-secondary text-white px-2 py-1 rounded-sm">Blog</button>
+                <button class="bg-primary px-2 py-1 rounded-sm my-5 lg:my-0">Sort by view</button>
+                <button class="bg-secondary text-white px-2 py-1 rounded-sm ">Blog</button>
+                
         </nav>
-        <hr class="max-w-screen-lg mx-auto mt-8 bg-[#17171733] px-2 md:px-4 lg:px-8">
+        <hr class="max-w-screen-lg mx-auto px-8 md:px-16 lg:px-0 mt-8 bg-[#17171733] ">
     </header>
 
-    <main>
+    <main class="max-w-screen-lg mx-auto px-8 md:px-16 lg:px-0 mb-10">
+        <!--! category List  -->
+        <div id="categoryListContainer" class="flex flex-col lg:flex-row gap-4 justify-center items-center mt-8">
+        </div>
+
         <!--! Cards container  -->
+
         <div id="cardsContainer">
 
-                <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <!-- <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div class="card-body">
                   <h2 class="card-title">Shoes!</h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div class="card-actions justify-end">
                     <button class="btn btn-primary">Buy Now</button>
                   </div>
-                </div>
+                </div> -->
             
 
         </div>

@@ -20,5 +20,45 @@
     <h1 class="text-3xl font-bold text-orange-400 text-center mt-5 ">Blog Questions</h1>
     <hr class="text-red-400 my-5">
 
+    <section class="w-3/4 mx-auto mt-5">
+        <h1 class="text-3xl font-bold mb-4">Discuss the scope of <span class="text-orange-400">var </span>, <span class="text-orange-400">let </span>, and <span class="text-orange-400">const</span> </h1>
+        <p class="mb-5"> <span class="font-bold text-2xl text-red-400 ">var:</span> <br>
+
+            Function Scope: Variables declared with var are function-scoped. This means they are accessible within the function in which they are declared or globally if declared outside of any function.Variables declared with the var keyword can NOT have block scope.
+
+            Variables declared inside a { } block can be accessed from outside the block.{
+                var x = 2;
+              }
+              // x CAN be used outside the scope
+              We can Redeclare a varibale with var. Redeclaring a javascript variable with var is allowed anywhere in a program
+            </p>
+        <p class="mb-5"> <span class="font-bold text-2xl text-red-400">let:</span> <br>
+
+            Block Scope: let keyword provide block scope in javascript. Variable declared inside a {} block can not be accessed from outside the block scope. With let redeclaring a variable in the same block is not allowed. To use let variable it must be declared before. We can assign null to a variable
+            </p>
+        <p class="mb-5"> <span class="font-bold text-2xl text-red-400">const:</span> <br>
+
+            Block Scope: const keyword provide block scope in javascript. Variable declared inside a {} block can not be accessed from outside the block scope. Variable defined with const can not be Redeclared . Variable defined with const keyword can not be Reassigned. const variable must be assigned when declared. After declaration it can't be assigned 
+            </p>
+
+            <h1 class="text-3xl font-bold mt-12 mb-8">Tell us the use cases of <span class="font-bold text-2xl text-red-400">null</span>  and <span class="font-bold text-2xl text-red-400">undefined</span> </h1>
+
+            <p class="mb-5"> <span class="font-bold text-2xl text-red-400">null:</span> <br>
+
+                null is often used to explicitly indicate that a variable or object property intentionally has no value or is empty. Functions may return null to indicate that they didn't produce a meaningful result or encountered an error.
+                </p>
+            <p class="mb-5"> <span class="font-bold text-2xl text-red-400">undefined:</span> <br>
+                Variables that are declared but have not been assigned a value are automatically initialized to undefined. This is often used to indicate that a variable has not yet been defined or given a value. If any property that doesn't exist on an object will give you a undefined
+
+                null is often used to explicitly indicate that a variable or object property intentionally has no value or is empty. Functions may return null to indicate that they didn't produce a meaningful result or encountered an error. We can assign undefined to a variable
+                </p>
+
+                <h1 class="text-3xl font-bold mt-12 mb-4">What do you mean by <span  class="font-bold text-2xl text-red-400">REST API</span> ?</h1>
+                
+                <p class="mb-12">
+                    API - Application Programming Interface. API is like a messenger to transfer data between clinets. API is made to not access the actual system but to access the some part of the system.A REST API (Representational State Transfer API) is a specific type of API that follows a set of architectural principles and constraints. REST API has some methods: GET, POST, PUT/PATCH, DELETE. We can do CRUD operation using REST API.
+                </p>
+    </section>
+
 </body>
 </html>

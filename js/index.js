@@ -1,10 +1,9 @@
-const loadData = async () => {
+const loadData = async() => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/videos/categories"
   );
   const data = await res.json();
   const categories = data.data;
-  console.log(categories);
   categoryList(categories);
 };
 
@@ -12,38 +11,74 @@ const categoryList = (categories) => {
   const categoryListContainer = document.getElementById(
     "categoryListContainer"
   );
+    
+  
+  
   categoryListContainer.innerHTML = `
         ${categories
           .map(
-            (cat) =>
-              `<button onclick="handleShowCard('${cat.category_id}')" class="bg-primary px-8 py-1 rounded-sm">${cat.category}</button>`
-          )
-          .join("")}
-    `;
-};
+            (cat) => 
+              `<button id="btnCategory" onclick="handleShowCard('${cat.category_id}')" class="hover:bg-red-600 bg-primary px-8 py-1 rounded-sm">${cat.category}</button>`).join("") 
+              
+
+        }
+    `  ;
+
+    
+     
+      
+  }
+
+
+
 //! Handle Show cards
+
 const handleShowCard = async (category_id) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${category_id}`
   );
   const data = await res.json();
   const cardDetails = data.data;
-  console.log(cardDetails);
-  showCardDetails(cardDetails);
+
+  const sortByDateBtn = document.getElementById("sortByDateBtn");
+  sortByDateBtn.addEventListener("click", () => {
+    sortByDateBtn.classList.add("bg-red-400");
+    
+
+    showCardDetails(cardDetails, true);
+  })
+  showCardDetails(cardDetails, false);
+  sortByDateBtn.classList.remove("bg-red-400");
+
+
+
+  
 };
 const warning = () => {
   console.log("No data found");
 };
 //! Show Card Details
-const showCardDetails = (cardDetails) => {
+const showCardDetails = (cardDetails, sortByView) => {
+  
+  const sorted = (a, b) => {
+    const view1 = parseFloat(a.others.views.slice(0, -1));
+    const view2 = parseFloat(b.others.views.slice(0, -1))
+
+    if(view1 < view2) return 1;
+    else if(view1 > view2) return -1;
+    else return 0;
+  }
   const cardsContainer = document.getElementById("cardsContainer");
 
   cardsContainer.textContent = "";
 
+  if(sortByView) {
+    cardDetails.sort(sorted);
+  }
   if (cardDetails.length == 0) {
     const div = document.createElement("div");
-    div.classList = "flex flex-col justify-center gap-6 my-4 mx-auto";
-
+    
+    div.classList = "flex flex-col rjustify-cente gap-6 my-4 ";
     div.innerHTML = `
         <div>
         <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
@@ -178,11 +213,11 @@ const showCardDetails = (cardDetails) => {
     </div>
       
       `;
-
     cardsContainer.appendChild(div);
-  } else {
-    cardDetails.forEach((card) => {
+  } 
 
+    
+    cardDetails.forEach((card) => {
     //?   Calculating Hours and Minutes 
     const secondsToHoursAndMinutes = (seconds) => {
         const hours  = Math.floor(seconds / 3600);
@@ -202,15 +237,10 @@ const showCardDetails = (cardDetails) => {
               card.thumbnail
             } alt="Shoes" />
 
-            <p class="absolute bottom-4 right-10 bg-[#171717] text-gray-100 px-3">
+            <p class="absolute bottom-2 right-2 bg-[#171717] text-gray-50 px-3 rounded-lg">
                 ${hours>0 ?minutes==0?hours+`hrs `+"ago":`${hours+"hrs"} ${minutes}`+` min `+` ago`:minutes>0?minutes+"ago":""}
              </p>
             </figure>
-
-            
-                
-           
-            
             
             <div class="mt-5">
               <div class="flex gap-3">
@@ -252,7 +282,8 @@ const showCardDetails = (cardDetails) => {
 
       cardsContainer.appendChild(div);
     });
-  }
+  
 };
 loadData();
-handleShowCard(1000);
+handleShowCard(1000)
+
